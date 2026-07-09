@@ -3,7 +3,7 @@ import { Navigate, Outlet } from "react-router-dom";
 
 
 const AuthGuard = () => {
-  const isAuthenticated = true; // Redux or token
+  const isAuthenticated = false; // Redux or token
 
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;

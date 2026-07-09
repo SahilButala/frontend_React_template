@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { Outlet } from 'react-router-dom'
+import LoadingSpinner from '../utils/loader'
 
 const MainLayout = () => {
   return (
-    <div>
+    <Suspense fallback={<LoadingSpinner/>}>
 
       <Outlet/>
-    </div>
+    </Suspense>
   )
 }
 

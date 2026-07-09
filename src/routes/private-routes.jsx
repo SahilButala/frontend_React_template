@@ -1,8 +1,9 @@
 
+import { lazy } from "react";
 import AuthGuard from "../guards/auth-guards"
 import MainLayout from "../layouts/main-layout";
-import About from "../pages/about";
-import Home from "../pages/home";
+const HomePage = lazy(()=>import("../pages/home"))
+const AboutPage = lazy(()=>import("../pages/about")) 
 import { ROUTES } from "./route-paths";
 
 const privateRoutes = {
@@ -13,11 +14,11 @@ const privateRoutes = {
             children: [
                 {
                     path: ROUTES.HOME,
-                    element: <Home />,
+                    element: <HomePage />,
                 },
                 {
                     path: ROUTES.ABOUT,
-                    element: <About />,
+                    element: <AboutPage />,
                 },
             ],
         },

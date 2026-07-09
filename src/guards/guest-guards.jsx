@@ -1,7 +1,7 @@
 import { Navigate, Outlet } from "react-router-dom";
 
 const GuestGuard = () => {
-  const isAuthenticated = true; // Redux or token
+  const isAuthenticated = false; // Redux or token
 
   if (isAuthenticated) {
     return <Navigate to="/" replace />;

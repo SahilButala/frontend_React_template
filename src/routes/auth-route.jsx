@@ -1,10 +1,15 @@
 
 import AuthLayout from "../layouts/auth-layout"
 import Login from "../pages/auth/login";
-import Register from "../pages/auth/register";
+const LoginPage = lazy(() => import("../pages/auth/login"))
+const RegisterPage = lazy(() => import("../pages/auth/register"));
+
+// import LoginPage from "../pages/auth/login"
+// import RegisterPage from "../pages/auth/register"
 import { ROUTES } from "../routes/route-paths";
 import GuestGuard from "../guards/guest-guards";
 import AuthGuard from "../guards/auth-guards";
+import { lazy } from "react";
 
 const authRoutes = {
   element: <GuestGuard />,
@@ -14,11 +19,11 @@ const authRoutes = {
       children: [
         {
           path: ROUTES.LOGIN,
-          element: <Login />,
+          element: <LoginPage />,
         },
         {
           path: ROUTES.REGISTER,
-          element: <Register />,
+          element: <RegisterPage />,
         },
       ],
     },
