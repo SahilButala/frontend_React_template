@@ -6,7 +6,7 @@ const RegisterPage = lazy(() => import("../pages/auth/register"));
 
 // import LoginPage from "../pages/auth/login"
 // import RegisterPage from "../pages/auth/register"
-import { ROUTES } from "../routes/route-paths";
+import { ROUTES } from "../config/route-paths";
 import GuestGuard from "../guards/guest-guards";
 import AuthGuard from "../guards/auth-guards";
 import { lazy } from "react";

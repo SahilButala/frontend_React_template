@@ -4,7 +4,7 @@ import AuthGuard from "../guards/auth-guards"
 import MainLayout from "../layouts/main-layout";
 const HomePage = lazy(()=>import("../pages/home"))
 const AboutPage = lazy(()=>import("../pages/about")) 
-import { ROUTES } from "./route-paths";
+import { ROUTES } from "../config/route-paths";
 
 const privateRoutes = {
     element: <AuthGuard />,
