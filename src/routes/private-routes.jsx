@@ -4,7 +4,7 @@ import AuthGuard from "../guards/auth-guards"
 import MainLayout from "../layouts/main-layout";
 const HomePage = lazy(()=>import("../pages/home"))
 const AboutPage = lazy(()=>import("../pages/about")) 
-import { ROUTES } from "../config/route-paths";
+import frontend_paths from "../config/frontend-route-paths";
 
 const privateRoutes = {
     element: <AuthGuard />,
@@ -13,11 +13,11 @@ const privateRoutes = {
             element: <MainLayout />,
             children: [
                 {
-                    path: ROUTES.HOME,
+                    path: frontend_paths.HOME,
                     element: <HomePage />,
                 },
                 {
-                    path: ROUTES.ABOUT,
+                    path: frontend_paths.ABOUT,
                     element: <AboutPage />,
                 },
             ],

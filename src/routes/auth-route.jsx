@@ -4,9 +4,7 @@ import Login from "../pages/auth/login";
 const LoginPage = lazy(() => import("../pages/auth/login"))
 const RegisterPage = lazy(() => import("../pages/auth/register"));
 
-// import LoginPage from "../pages/auth/login"
-// import RegisterPage from "../pages/auth/register"
-import { ROUTES } from "../config/route-paths";
+import  frontend_paths  from "../config/frontend-route-paths";
 import GuestGuard from "../guards/guest-guards";
 import AuthGuard from "../guards/auth-guards";
 import { lazy } from "react";
@@ -18,11 +16,11 @@ const authRoutes = {
       element: <AuthLayout />,
       children: [
         {
-          path: ROUTES.LOGIN,
+          path: frontend_paths.LOGIN,
           element: <LoginPage />,
         },
         {
-          path: ROUTES.REGISTER,
+          path: frontend_paths.REGISTER,
           element: <RegisterPage />,
         },
       ],
