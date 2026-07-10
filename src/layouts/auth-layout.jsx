@@ -4,8 +4,12 @@ import LoadingSpinner from '../utils/global-loader'
 
 const AuthLayout = () => {
   return (
-    <Suspense fallback={<LoadingSpinner/>}> 
+    <Suspense fallback={<LoadingSpinner/>} > 
+
+    <div className='flex items-center justify-center h-screen'>
+
       <Outlet/>
+    </div>
     </Suspense>
   )
 }

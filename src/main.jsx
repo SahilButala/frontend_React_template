@@ -9,17 +9,17 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import store from './store/store.js'
 import { persistStore } from "redux-persist";
+import { ToastContainer } from 'react-toastify'
 
 let persistor = persistStore(store)
 
 createRoot(document.getElementById('root')).render(
   <>
-    <RouterProvider router={router}>
-      <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <App />
-        </PersistGate>
-      </Provider>
-    </RouterProvider>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <RouterProvider router={router} />
+        <ToastContainer />
+      </PersistGate>
+    </Provider>
   </>,
 )

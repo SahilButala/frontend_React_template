@@ -3,9 +3,11 @@
 
 const paths = {
     auth : {
-        login : "/login",
-        register : "/register"
-    }
+        login : "/auth/login",
+        register : "/auth/register",
+        refereshToken : "/auth/refresh"
+    },
+
 }
 
 export default paths

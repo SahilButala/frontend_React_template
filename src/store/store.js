@@ -11,8 +11,8 @@ import {
 } from "redux-persist";
 import storageModule from "redux-persist/lib/storage";
 
-const storage = storageModule.default ?? storageModule;
 import authSlice from "./auth/index"; 
+const storage = storageModule.default ?? storageModule;
 
 
 

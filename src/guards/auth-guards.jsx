@@ -1,9 +1,10 @@
+import { useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router-dom";
 
 
 
 const AuthGuard = () => {
-  const isAuthenticated = false; // Redux or token
+  const { isAuthenticated } = useSelector((state) => state.auth)
 
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;

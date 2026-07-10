@@ -125,7 +125,7 @@ const CommonFormComponent = ({
           Please wait..
         </Button>
       ) : (
-        <Button disabled = {isDisabled} className="mt-2 w-full">{buttonText || "Submit"}</Button>
+        <Button type="submit"  className="mt-2 w-full">{buttonText || "Submit"}</Button>
       )}
     </form>
   );
