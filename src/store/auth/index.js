@@ -1,7 +1,7 @@
 
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { LoginUserService } from "../../services";
-import { setAccessToken } from "@/utils/token-service";
+import { clearAccessToken, setAccessToken } from "@/utils/token-service";
 import backend_paths from "../../config/backend-route-path"
 import axios from "axios";
 import { url } from "@/api";
@@ -27,20 +27,26 @@ export const LoginUser = createAsyncThunk("/auth/login", async (formData, { reje
 })
 
 export const refreshToken = async () => {
-    const response = await axios.post(`${url}${backend_paths.auth.refereshToken}`,
-        {},
-        {
-            withCredentials: true,
-        }
-    );
+    try {
 
-    console.log(response, "response 123")
+        const response = await axios.post(`${url}${backend_paths.auth.refereshToken}`,
+            {},
+            {
+                withCredentials: true,
+            }
+        );
 
-    const accessToken = response.data.data.accessToken;
+        console.log(response, "response 123")
 
-    setAccessToken(accessToken);
+        const accessToken = response.data.data.accessToken;
 
-    return accessToken;
+        setAccessToken(accessToken);
+
+        return accessToken;
+    } catch (error) {
+        clearAccessToken()
+        
+    }
 };
 
 const authSlice = createSlice({
@@ -48,8 +54,9 @@ const authSlice = createSlice({
     initialState,
     reducers: {
         // some extra reducers for small cases
-        setRole: (state, action) => {
-
+        clearCredendials: (state, action) => {
+               state.isAuthenticated = false;
+               state.user = null
         }
     },
     extraReducers: (builder) => {
@@ -69,5 +76,5 @@ const authSlice = createSlice({
     }
 })
 
-export const { setUser, setauth } = authSlice.actions
+export const { clearCredendials } = authSlice.actions
 export default authSlice.reducer
